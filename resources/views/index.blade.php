@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>PBC</title>
-
-    <!-- Fonts -->
-    @include('layouts.head')
-</head>
-
+@section('title')
+Accueil
+@endsection
+@include('layouts.header')
 <body class="antialiased">
-    @include('layouts.header')
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12 col-lg-4 text-center">
@@ -41,20 +31,6 @@
         </div>
         
     </div>
-    
 </body>
-<footer class="mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 text-center">menu footer</div>
-            <div class="col-lg-8 text-center">
-                map google
-            </div>
-        </div>
-        <div class="row text-center">
-            <p>Copiright 2023</p>
-        </div>
-    </div>
-</footer>
 
-</html>
+@include('layouts.footer')
