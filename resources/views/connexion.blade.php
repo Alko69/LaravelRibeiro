@@ -1,5 +1,9 @@
+@section('title')
+Connexion
+@endsection
 @include('layouts.header')
 @include('layouts.head')
+
 
 
 @section('content')
