@@ -14,13 +14,7 @@
                     <a class="nav-link" href="/helloworld">Helloworld</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/product">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/connexion">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/signup">Inscription</a>
+                    <a class="nav-link" href="#">Products</a>
                 </li>
             </ul>
         </div>
