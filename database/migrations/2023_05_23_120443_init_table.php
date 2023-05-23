@@ -35,7 +35,7 @@ class init_table extends Migration
         Schema::create('order_product', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
-            $table->string('product_price');
+            $table->float('product_price');
 
 
             $table->BigInteger('order_id');
