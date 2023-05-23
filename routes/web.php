@@ -28,3 +28,7 @@ Route::get('/connexion', function () {
 Route::get('/products', function () {
     return view('products.listProducts');
 });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
