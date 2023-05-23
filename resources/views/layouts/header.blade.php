@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/connexion">Connexion</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Sign up</a>
+                    </li>
                 </ul>
             </div>
         </div>

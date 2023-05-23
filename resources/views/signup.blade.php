@@ -1,71 +1,39 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title')
+Sign up
+@endsection
+@include('layouts.header')
+@include('layouts.head')
 
-        <title>Inscription</title>
-        <!-- Fonts -->
-        <link rel="stylesheet" href="/css/signup.css">
-        <link rel="stylesheet" href="/css/util.css">
-        @include('layouts.head')
-    </head>
-    <body class="antialiased">
-    @include('layouts.header')
-        <div class="limiter">
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <img src="images/img-01.png" alt="IMG">
-                    </div>
+@section('content')
 
-                    <form class="login100-form validate-form">
-                        <span class="login100-form-title">
-                            Member Login
-                        </span>
+<main class="container" style="max-width: 500px">
 
-                        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="text" name="email" placeholder="Email">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                        </div>
+    <h1>Sign up</h1>
 
-                        <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="Password">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                        
-                        <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Login
-                            </button>
-                        </div>
+    <form>
 
-                        <div class="text-center p-t-12">
-                            <span class="txt1">
-                                Forgot
-                            </span>
-                            <a class="txt2" href="#">
-                                Username / Password?
-                            </a>
-                        </div>
-
-                        <div class="text-center p-t-136">
-                            <a class="txt2" href="#">
-                                Create your Account
-                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-    </body>
 
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+            <div id="emailHelp" class="form-text">We'll never share your password with anyone else.</div>
+        </div>
 
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
 
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I accept the terms of use</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
