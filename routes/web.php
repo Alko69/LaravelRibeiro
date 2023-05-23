@@ -24,3 +24,7 @@ Route::get('/helloworld', function () {
 Route::get('/connexion', function () {
     return view('connexion');
 });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
