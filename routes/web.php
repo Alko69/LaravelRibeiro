@@ -22,5 +22,5 @@ Route::get('/helloworld', function () {
 });
 
 Route::get('/products', function () {
-    return view('products');
+    return view('products.listProducts');
 });
