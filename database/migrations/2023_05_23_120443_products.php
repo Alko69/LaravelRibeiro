@@ -19,7 +19,6 @@ class Products extends Migration
             $table->float('price');
             $table->integer('quantity');
             $table->string('description');
-            $table->string('test');
             $table->timestamps();
         });
     }
