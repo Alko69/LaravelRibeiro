@@ -16,7 +16,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Products</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/connexion">Connexion</a>
+                </li>
             </ul>
         </div>
     </div>
-    </nav>
+</nav>
