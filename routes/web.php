@@ -29,6 +29,8 @@ Route::get('/connexion', function () {
 Route::resource('products', ProductController::class);
 //Route::get('/products', [ProductController::class, 'index'])->name('products.listProducts');
 
+Route::resource('users', UserController::class);
+
 Route::get('/signup', function () {
     return view('signup');
 });
