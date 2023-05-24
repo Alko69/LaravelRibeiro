@@ -9,7 +9,10 @@ class Product extends Model
 {
     use HasFactory;
 
-    public static function orderBy(string $string, string $string1)
-    {
-    }
+    protected $fillable = [
+        'name',
+        'price',
+        'quantity',
+        'description'
+    ];
 }
