@@ -7,7 +7,7 @@ Produits
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="/products/add"> Add a product</a>
+                <a class="btn btn-success" href="products.create"> Add a product</a>
             </div>
         </div>
     </div>
@@ -30,8 +30,8 @@ Produits
                 <td>{{ $product->quantity }}</td>
                 <td>{{ Str::limit($product->description, 30) }}</td>
                 <td>
-                    <form action="" method="Post">
-                        <a class="btn btn-primary" href="">Edit</a>
+                    <form action="{{ route('products.destroy', $product->id) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

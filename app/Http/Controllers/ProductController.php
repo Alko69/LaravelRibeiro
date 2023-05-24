@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -42,63 +43,65 @@ class ProductController extends Controller
             'address' => 'required',
         ]);
 
-        Company::create($request->post());
+        Product::create($request->post());
 
-        return redirect()->route('products.listProducts')->with('success','Company has been created successfully.');
+        return redirect()->route('products.index')->with('success','Product has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\company  $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return Response
      */
-    public function show(Company $product)
+    public function show(Product $product)
     {
-        return view('products.detailProduct',compact('product'));
+        return view('products.show',compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Company  $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return Response
      */
-    public function edit(Company $product)
+    public function edit(Product $product)
     {
-        return view('products.editProducts',compact('product'));
+        return view('products.editProduct',compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\company  $product
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
+            'price'=>'required',
+            'quantity'=>'required',
+            'description'=>'required',
         ]);
 
         $product->fill($request->post())->save();
 
-        return redirect()->route('products.listProducts')->with('success','Company Has Been updated successfully');
+        return redirect()->route('products.index')->with('success','Product Has Been updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Company  $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return Response
      */
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.listProducts')->with('success','Company has been deleted successfully');
+        return redirect()->route('products.index')->with('success','Product has been deleted successfully');
     }
 
 }
