@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class init_table extends Migration
+class CreateTableInit extends Migration
 {
     /**
      * Run the migrations.
@@ -25,10 +25,7 @@ class init_table extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-
-            $table->BigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-
+            $table->foreignId('user_id')->constrained('users')->references('id')->on('users');
             $table->timestamps();
         });
 
@@ -36,14 +33,8 @@ class init_table extends Migration
             $table->id();
             $table->integer('quantity');
             $table->float('product_price');
-
-
-            $table->BigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
-
-            $table->BigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
-
+            $table->foreignId('order_id')->constrained('orders')->references('id')->on('orders');
+            $table->foreignId('product_id')->constrained('products')->references('id')->on('products');
             $table->timestamps();
         });
     }
