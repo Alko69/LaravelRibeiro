@@ -25,7 +25,9 @@ class CreateTableInit extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('user_id')->constrained('users')->references('id')->on('users');
+            //$table->foreignId('user_id')->constrained('users')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
 
@@ -33,9 +35,14 @@ class CreateTableInit extends Migration
             $table->id();
             $table->integer('quantity');
             $table->float('product_price');
-            $table->foreignId('order_id')->constrained('orders')->references('id')->on('orders');
-            $table->foreignId('product_id')->constrained('products')->references('id')->on('products');
+            //$table->foreignId('order_id')->constrained('orders')->references('id')->on('orders');
+            //$table->foreignId('product_id')->constrained('products')->references('id')->on('products');
             $table->timestamps();
+            $table->bigInteger('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('prduct');
+            
         });
     }
 

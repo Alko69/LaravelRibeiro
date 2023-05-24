@@ -1,4 +1,7 @@
-@include('index')
+@section('title')
+Produits
+@endsection
+@include('layouts.header')
 
 <div class="container mt-2">
     <div class="row">
@@ -44,3 +47,4 @@
         </tbody>
     </table>
 </div>
+@include('layouts.footer')
