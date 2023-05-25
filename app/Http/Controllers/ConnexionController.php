@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Orders;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class ConnexionController extends Controller
@@ -19,7 +20,15 @@ class ConnexionController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication successful
-            return redirect()->intended('/');
+            $order = new Orders;
+            $order->id = '2';
+            $order->userId = Auth::user()->id;
+
+
+            $response = redirect()->intended('/');
+            $response->cookie('userId', Auth::user()->id, 10);
+            $response->cookie('testOrder', $order->userId, 10);
+            return $response;
         } else {
             // Invalid credentials
             return redirect()->route('login')->withErrors(['error' => 'Invalid login credentials.']);
