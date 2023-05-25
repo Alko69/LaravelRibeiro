@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -14,10 +15,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $products = Product::all();
-        return view('products.listproducts', ['products' => $products]);
-    }
+{
+    $products = Product::all();
+    $user = Auth::user();
+    return view('products.listproducts', compact('products', 'user'));
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -72,7 +75,6 @@ class ProductController extends Controller
 {
     // Retrieve the product by its ID
     $product = Product::findOrFail($id);
-
     // Pass the product to the view
     return view('products.showProduct', compact('product'));
 }
