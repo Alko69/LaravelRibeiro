@@ -1,5 +1,5 @@
 @section('title')
-Sign up
+Add user
 @endsection
 @include('layouts.header')
 @include('layouts.head')
@@ -20,7 +20,7 @@ Sign up
   </script>
 <main class="container" style="max-width: 500px">
 
-    <h1>Sign up</h1>
+    <h1>Add User</h1>
 
     @if(session('status'))
         <div class="alert alert-success mb-1 mt-1">
