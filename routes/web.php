@@ -23,6 +23,10 @@ Route::get('/helloworld', function () {
     return view('helloworld');
 });
 
+Route::get('/rgpd', function () {
+    return view('rgpd');
+});
+
 Route::get('/connexion', function () {
     return view('connexion');
 });
