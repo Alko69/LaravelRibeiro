@@ -60,5 +60,9 @@ Sign up
         </div>
 
         <button type="submit" class="btn btn-primary" id="monBouton" disabled>Submit</button>
+<<<<<<< HEAD
+=======
+
+>>>>>>> clc
     </form>
 </main>

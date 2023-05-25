@@ -65,8 +65,8 @@ RGPD
   </ul>
   
   <h2>Contact Us</h2>
-  <p>If you have any questions or concerns about our privacy policy, please <a href="/contact">contact us</a>.</p>
+  <p>If you have any questions or concerns about our privacy policy, please <a href="mailto:jayc@contact.fr">contact us</a>.</p>
   
-  <p>Last updated: [Insert Date]</p>
+  <p>Last updated: 25/05/2023</p>
 </body>
 @include('layouts.footer')

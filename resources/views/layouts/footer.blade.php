@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row text-center">
-            <p class="text-center mt-3">© 2023 - Tous droits réservé<s></s></p>
+            <p class="text-center mt-3">© JAYC 2023 - Tous droits réservé<s></s></p>
         </div>
     </div>
 </footer>
