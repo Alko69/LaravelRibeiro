@@ -26,14 +26,14 @@ Produits
         </tr>
         </thead>
         <tbody>
-        @foreach ($products as $product)
+        @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->password }}</td>
-                    <form action="" method="Post">
-                        <a class="btn btn-primary" href="">Edit</a>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -15,7 +15,7 @@
             {{ session('status') }}
         </div>
     @endif
-    <form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('users.update',$user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <strong>Name:</strong>
                     <input type="text" name="name" value="{{ $user->name }}" class="form-control"
-                           placeholder="Product name">
+                           placeholder="User name">
                     @error('name')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
