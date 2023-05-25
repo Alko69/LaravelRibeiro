@@ -23,6 +23,7 @@
                                 height="30" alt="img logo projet">
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/rgpd">RGPD</a>
                     </li>

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class InvitedUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('users.listUsers', ['users' => $user]);
+        $products = Product::all();
+        return view('products.listproducts', ['products' => $products]);
     }
 
     /**
@@ -24,11 +25,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /*public function create()
     {
 
         return view('signup');
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +37,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -51,7 +52,7 @@ class UserController extends Controller
         User::create($userData); // Créer l'utilisateur avec les données mises à jour
 
         return view('connexion')->with('success','User has been created successfully.');
-    }
+    }*/
 
     /**
      * Display the specified resource.
@@ -61,7 +62,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show',compact('user'));
+        return view('invitedUsers.show',compact('user'));
     }
 
     /**
@@ -72,7 +73,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.editUser',compact('user'));
+        return view('invitedUsers.editUser',compact('user'));
     }
 
     /**
@@ -83,21 +84,21 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-{
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-    $userData = $request->except('password');
-    $userData['password'] = Hash::make($request->input('password'));
-    $userData['role'] = 'admin';
-    $user->fill($userData)->save();
+        $userData = $request->except('password'); // Exclure le champ password de la création initiale de l'utilisateur
 
-    return redirect()->route('users.index')->with('success', 'User has been updated successfully');
-}
+        $userData['password'] = Hash::make($request->input('password')); // Hacher le mot de passe
 
+        $user->fill($userData)->save();
+
+        return redirect()->route('invitedUsers.index')->with('success','User Has Been updated successfully');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -105,9 +106,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    /*public function destroy(User $user)
     {
         $user->delete();
         return redirect()->route('users.index')->with('success','User has been deleted successfully');
-    }
+    }*/
 }
