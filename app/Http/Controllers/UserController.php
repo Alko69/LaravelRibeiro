@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('user.listUsers', ['users' => $user]);
+        return view('users.listUsers', ['users' => $user]);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.addUser');
+        return view('users.addUser');
     }
 
     /**
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         User::create($request->post());
 
-        return redirect()->route('user.listUsers')->with('success','User has been created successfully.');
+        return redirect()->route('users.listUsers')->with('success','User has been created successfully.');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.detailUsers',compact('user'));
+        return view('users.detailUsers',compact('user'));
     }
 
     /**
@@ -66,7 +66,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.editUser',compact('user'));
+        return view('users.editUser',compact('user'));
     }
 
     /**
@@ -86,7 +86,7 @@ class UserController extends Controller
 
         $user->fill($request->post())->save();
 
-        return redirect()->route('user.listUsers')->with('success','User Has Been updated successfully');
+        return redirect()->route('users.listUsers')->with('success','User Has Been updated successfully');
     }
 
     /**
@@ -98,7 +98,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.listUsers')->with('success','User has been deleted successfully');
+        return redirect()->route('users.listUsers')->with('success','User has been deleted successfully');
     }
 
 }
