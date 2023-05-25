@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/helloworld', function () {
-    return view('helloworld');
-});
-
 Route::get('/rgpd', function () {
     return view('rgpd');
 });
@@ -36,8 +33,17 @@ Route::resource('products', ProductController::class);
 
 Route::resource('users', UserController::class);
 
+Route::resource('socialite', SocialiteController::class);
+
 Route::get('/signup', function () {
     return view('signup');
 });
 
+// La page où on présente les liens de redirection vers les providers
+Route::get("login-register", "SocialiteController@loginRegister");
 
+// La redirection vers le provider
+Route::get("redirect/{provider}", "SocialiteController@redirect")->name('socialite.redirect');
+
+// Le callback du provider
+Route::get("callback/{provider}", "SocialiteController@callback")->name('socialite.callback');
