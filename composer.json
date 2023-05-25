@@ -11,6 +11,7 @@
         "jason-guru/laravel-make-repository": "^0.0.3",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
+        "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
