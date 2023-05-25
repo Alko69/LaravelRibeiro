@@ -35,8 +35,6 @@ class CreateTableInit extends Migration
             $table->id();
             $table->integer('quantity');
             $table->float('product_price');
-            //$table->foreignId('order_id')->constrained('orders')->references('id')->on('orders');+
-            //$table->foreignId('product_id')->constrained('products')->references('id')->on('products');
             $table->timestamps();
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
