@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/signup">Sign up</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">liste</a>
+                    </li>
                 </ul>
             </div>
         </div>

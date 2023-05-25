@@ -7,7 +7,7 @@ Produits
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="/user/add"> Add a user</a>
+                <a class="btn btn-success" href="users/create"> Add a user</a>
             </div>
         </div>
     </div>
