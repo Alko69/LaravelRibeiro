@@ -39,8 +39,9 @@ Route::resource('products', ProductController::class);
 
 Route::resource('users', UserController::class);
 
-/**Routage pour les rôles admin et user */
+Route::resource('orders', OrderController::class);
 
+/**Routage pour les rôles admin et user */
 //Si on est connecté en tant qu'admin on a acces a la page /admin/dashboard
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', [UserController::class, 'index']);

@@ -38,7 +38,7 @@ class CreateTableInit extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('prduct');
+            $table->foreign('product_id')->references('id')->on('products');
 
         });
     }
