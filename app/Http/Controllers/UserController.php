@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('users.listUsers', ['users' => $users]);
+        return view('user.listUsers', ['user' => $user]);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.addUser');
+        return view('user.addUser');
     }
 
     /**
@@ -44,36 +44,36 @@ class UserController extends Controller
 
         Company::create($request->post());
 
-        return redirect()->route('users.listUsers')->with('success','Company has been created successfully.');
+        return redirect()->route('user.listUsers')->with('success','Company has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\company  $product
+     * @param  \App\company  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
-        return view('users.detailUsers',compact('user'));
+        return view('user.detailUsers',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Company  $product
+     * @param  \App\Company  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
     {
-        return view('users.editUser',compact('user'));
+        return view('user.editUser',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\company  $product
+     * @param  \App\company  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -84,21 +84,21 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        $product->fill($request->post())->save();
+        $user->fill($request->post())->save();
 
-        return redirect()->route('users.listUsers')->with('success','Company Has Been updated successfully');
+        return redirect()->route('user.listUsers')->with('success','Company Has Been updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Company  $product
+     * @param  \App\Company  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
-        $product->delete();
-        return redirect()->route('users.listUsers')->with('success','Company has been deleted successfully');
+        $user->delete();
+        return redirect()->route('user.listUsers')->with('success','Company has been deleted successfully');
     }
 
 }

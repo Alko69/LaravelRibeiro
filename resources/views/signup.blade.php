@@ -19,8 +19,7 @@ Sign up
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
-            <div id="nameHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <input type="text" class="form-control" id="name">
             @error('name')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
