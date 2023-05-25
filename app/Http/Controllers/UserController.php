@@ -44,8 +44,7 @@ class UserController extends Controller
 
         User::create($request->post());
 
-        return redirect()->route('users.index')->with('success','User has been created successfully.');
-        return view('connexion', ['users' => $user]);
+        return view('connexion')->with('success','User has been created successfully.');
     }
 
     /**

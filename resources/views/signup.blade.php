@@ -6,6 +6,18 @@ Sign up
 
 @section('content')
 
+<script>
+    function verifierCase() {
+      var checkBox = document.getElementById("maCase");
+      var bouton = document.getElementById("monBouton");
+
+      if (checkBox.checked == false) {
+        bouton.disabled = true;
+      } else {
+        bouton.disabled = false;
+      }
+    }
+  </script>
 <main class="container" style="max-width: 500px">
 
     <h1>Sign up</h1>
@@ -43,10 +55,10 @@ Sign up
         </div>
 
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" id="maCase" onchange="verifierCase()">
             <label class="form-check-label" for="exampleCheck1">I accept the terms of use</label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="monBouton" disabled>Submit</button>
     </form>
 </main>
