@@ -36,11 +36,7 @@
                         <a class="nav-link" href="/signup">Sign up</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
-                        <a class="nav-link" href="/users">liste</a>
-=======
                         <a class="nav-link" href="/users">Users</a>
->>>>>>> clc
                     </li>
                 </ul>
             </div>
