@@ -61,6 +61,5 @@ Sign up
 
         <button type="submit" class="btn btn-primary" id="monBouton" disabled>Submit</button>
 
-        <a href="{{ route('socialite.redirect', 'google') }}" title="Connexion/Inscription avec Google" class="btn btn-link"  >Continuer avec Google</a>
     </form>
 </main>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,6 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
+
         return view('signup');
     }
 
@@ -42,7 +44,11 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        User::create($request->post());
+        $userData = $request->except('password'); // Exclure le champ password de la création initiale de l'utilisateur
+
+        $userData['password'] = Hash::make($request->input('password')); // Hacher le mot de passe
+    
+        User::create($userData); // Créer l'utilisateur avec les données mises à jour
 
         return view('connexion')->with('success','User has been created successfully.');
     }
@@ -84,7 +90,11 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        $user->fill($request->post())->save();
+        $userData = $request->except('password'); // Exclure le champ password de la création initiale de l'utilisateur
+
+        $userData['password'] = Hash::make($request->input('password')); // Hacher le mot de passe
+
+        $user->fill($userData)->save();
 
         return redirect()->route('users.index')->with('success','User Has Been updated successfully');
     }
@@ -101,4 +111,8 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success','User has been deleted successfully');
     }
 
+
+
+
+    
 }
