@@ -37,6 +37,9 @@
 
             <p>Price: ${{ $product->price }}</p>
             <!-- Display other product details as necessary -->
+            <div class="pull-right mb-2">
+                <a class="btn btn-success" href=""> Add to card</a>
+            </div>
         </div>
     </div>
 </div>
