@@ -32,6 +32,7 @@ Produits
                 <td>
                     <form action="{{ route('products.destroy', $product->id) }}" method="Post">
                         <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('products.show', $product->id) }}">Show</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

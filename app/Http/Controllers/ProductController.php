@@ -68,10 +68,15 @@ class ProductController extends Controller
      * @param Product $product
      * @return Response
      */
-    public function show(Product $product)
-    {
-        return view('products.show',compact('product'));
-    }
+    public function show($id)
+{
+    // Retrieve the product by its ID
+    $product = Product::findOrFail($id);
+
+    // Pass the product to the view
+    return view('products.showProduct', compact('product'));
+}
+
 
     /**
      * Show the form for editing the specified resource.
