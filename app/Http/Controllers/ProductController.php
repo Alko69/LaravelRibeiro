@@ -36,17 +36,31 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
-        ]);
+{
+    // Validate the form data
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required|numeric',
+        'quantity' => 'required|numeric',
+        // Add validation rules for other fields if needed
+    ]);
 
-        Product::create($request->post());
+    // Create a new product instance
+    $product = new Product();
+    $product->name = $validatedData['name'];
+    $product->description = $validatedData['description'];
+    $product->price = $validatedData['price'];
+    $product->quantity = $validatedData['quantity'];
+    // Set other attributes as necessary
+    
+    // Save the product to the database
+    $product->save();
 
-        return redirect()->route('products.index')->with('success','Product has been created successfully.');
-    }
+    // Redirect to a success page or a list of products
+    return redirect()->route('products.index')->with('success', 'Product added successfully.');
+}
+
 
     /**
      * Display the specified resource.
