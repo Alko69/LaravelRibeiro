@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mb-2">
-                <h2>Add Company</h2>
+                <h2>Add Product</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
@@ -19,8 +19,8 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Company Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Company Name">
+                    <strong>Product Name:</strong>
+                    <input type="text" name="name" class="form-control" placeholder="Product Name">
                     @error('name')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -28,18 +28,27 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Company Email:</strong>
-                    <input type="email" name="email" class="form-control" placeholder="Company Email">
-                    @error('email')
+                    <strong>Price:</strong>
+                    <input type="number" name="price" class="form-control" placeholder="Price">
+                    @error('number')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Company Address:</strong>
-                    <input type="text" name="address" class="form-control" placeholder="Company Address">
-                    @error('address')
+                    <strong>Quantity:</strong>
+                    <input type="number" name="quantity" class="form-control" placeholder="Quantity">
+                    @error('quantity')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Description:</strong>
+                    <input type="text" name="description" class="form-control" placeholder="Description">
+                    @error('description')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>

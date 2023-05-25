@@ -7,7 +7,7 @@ Produits
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="products.create"> Add a product</a>
+                <a class="btn btn-success" href="products/create"> Add a product</a>
             </div>
         </div>
     </div>
