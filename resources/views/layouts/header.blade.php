@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/helloworld">Helloworld</a>
+                        <a class="nav-link" href="/rgpd">RGPD</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/products">Products</a>
