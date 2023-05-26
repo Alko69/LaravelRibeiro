@@ -21,17 +21,15 @@ Produits
         <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>password</th>
+            <th>Role</th>
             <th width="280px">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach ($users as $user)
             <tr>
-                <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->password }}</td>
                 <td>{{ $user->role }}</td>
                     <td>
                         <form action="{{ route('users.destroy', $user->id) }}" method="Post">
