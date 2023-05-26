@@ -16,7 +16,7 @@ Produits
         </thead>
         <tbody>
         @foreach ($orders as $order)
-            @if ($order->user_id == )
+            @if ($user && $order->user_id == auth()->id())
                 @foreach ($order_product as $order_product)
                     @if ($order_product->order_id == $order->id)
                         @foreach ($products as $product)
