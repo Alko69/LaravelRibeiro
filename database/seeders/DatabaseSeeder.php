@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10) . '@gmail.com',
                 'password' => Hash::make('password'),
+                'role' => 'user'
             ]);
         }
         for ($i = 0; $i < 10; $i++) {

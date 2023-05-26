@@ -34,7 +34,7 @@
                     
                     <td>
                         <form action="{{ route('products.destroy', $product->id) }}" method="Post">
-                            @if ($user->role =="admin")
+                            @if ($user && $user->role =="admin")
                             <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
                             @else
                             <a class="btn btn-success" href="{{ route('products.edit', $product->id) }}">Add to cart</a>
