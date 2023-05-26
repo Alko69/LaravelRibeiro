@@ -10,7 +10,7 @@ Connexion
 
 <main class="container" style="max-width: 500px">
 
-    <h1>Connexion</h1>
+    <h1>Sign in</h1>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
