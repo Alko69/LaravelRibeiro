@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
 use App\Models\Product;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -40,29 +42,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
 {
-    // Validate the form data
-    $validatedData = $request->validate([
-        'name' => 'required',
-        'description' => 'required',
-        'price' => 'required|numeric',
-        'quantity' => 'required|numeric',
-        // Add validation rules for other fields if needed
+    // Validate the request data
+    $request->validate([
+        'product_id' => 'required|exists:products,id',
+        'quantity' => 'required|integer|min:1',
     ]);
 
-    // Create a new product instance
-    $product = new Product();
-    $product->name = $validatedData['name'];
-    $product->description = $validatedData['description'];
-    $product->price = $validatedData['price'];
-    $product->quantity = $validatedData['quantity'];
-    // Set other attributes as necessary
-    
-    // Save the product to the database
-    $product->save();
+    // Create a new order object
+    $order = new Orders();
+    $order->user_id = auth()->user()->id; // Assuming the order is associated with a user
+    // Set other properties of the order, such as total amount, status, etc.
 
-    // Redirect to a success page or a list of products
-    return redirect()->route('products.index')->with('success', 'Product added successfully.');
+    // Save the order to the database
+    $order->save();
+
+    // Create an order item record
+    $orderProduct = new OrderProduct();
+    $orderProduct->order_id = $order->id;
+    $orderProduct->product_id = $request->product_id;
+    $orderProduct->quantity = $request->quantity;
+    // Set other properties such as price, discounts, etc.
+
+    // Save the order item to the database
+    $orderProduct->save();
+
+    return redirect()->route('orders.index')
+        ->with('success', 'Order created successfully.');
 }
+
 
 
     /**

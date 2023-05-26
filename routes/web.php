@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InvitedUserController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\OrderProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +42,8 @@ Route::resource('products', ProductController::class);
 Route::resource('users', UserController::class);
 
 Route::resource('orders', OrderController::class);
+Route::resource('ordersProduct', OrderProductController::class);
+Route::get('/orders/create/{productId}', [OrderController::class, 'create'])->name('orders.create');
 
 /**Routage pour les rôles admin et user */
 //Si on est connecté en tant qu'admin on a acces a la page /admin/dashboard
