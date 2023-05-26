@@ -36,9 +36,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/signup">Sign up</a>
                     </li>
+                    @if ($user && $user->role =="admin")
                     <li class="nav-item">
                         <a class="nav-link" href="/users">Users</a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/orders">Cart</a>
                     </li>
