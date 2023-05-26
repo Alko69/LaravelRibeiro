@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right mb-2">
-                @if ($user->role =="admin")
+                @if ($user && $user->role =="admin")
                 <a class="btn btn-success" href="products/create"> Add a product</a>
                 @endif
             </div>
@@ -42,7 +42,7 @@
                             <a class="btn btn-primary" href="{{ route('products.show', $product->id) }}">Show</a>
                             @csrf
                             @method('DELETE')
-                            @if ($user->role =="admin")
+                            @if ($user && $user->role =="admin")
                             <button type="submit" class="btn btn-danger">Delete</button>
                             @endif
                         </form>
