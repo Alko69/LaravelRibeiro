@@ -36,8 +36,9 @@
                         <form action="{{ route('products.destroy', $product->id) }}" method="Post">
                             @if ($user && $user->role =="admin")
                             <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
+                            <a class="btn btn-success" href="{{ route('orders.create', $product->id) }}">Add to cart</a>
                             @else
-                            <a class="btn btn-success" href="{{ route('products.edit', $product->id) }}">Add to cart</a>
+                            <a class="btn btn-success" href="{{ route('products.create', $product->id) }}">Add to cart</a>
                             @endif
                             <a class="btn btn-primary" href="{{ route('products.show', $product->id) }}">Show</a>
                             @csrf

@@ -7,10 +7,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class orders extends Model
+class Orders extends Model
 {
-    protected $fillable = [
+    /*protected $fillable = [
         'id',
         'userId',
-    ];
+    ];*/
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'order_products', 'order_id', 'product_id')
+            ->withPivot('quantity', 'product_price', 'id')
+            ->withTimestamps();
+    }
 }
