@@ -15,18 +15,23 @@ Connexion
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <div>
-            <label for="email">Adresse e-mail</label>
-            <input id="email" type="email" name="email" required autofocus>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" >
+            @error('email')
+            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
         </div>
 
-        <div>
-            <label for="password">Mot de passe</label>
-            <input id="password" type="password" name="password" required>
+        <div class="mb-3">
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+            @error('password')
+            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
         </div>
 
-        <div>
-            <button type="submit">Se connecter</button>
+        <button type="submit" class="btn btn-primary" id="monBouton" >Submit</button>
         </div>
         @if($errors->has('error'))
         <div class="alert alert-danger">
