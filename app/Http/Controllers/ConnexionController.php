@@ -34,4 +34,10 @@ class ConnexionController extends Controller
             return redirect()->route('login')->withErrors(['error' => 'Invalid login credentials.']);
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/')->with('success', 'Vous avez été déconnecté avec succès.');
+    }
 }

@@ -23,9 +23,6 @@ Accueil
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, ipsum vero nisi optio maiores beatae. Esse
                 libero ducimus dolorum architecto quasi, quidem est, blanditiis iusto veritatis nihil eius, excepturi autem.
             </div>
-            <div class="image-description mb-3">
-                <img src="test" alt="Test">
-            </div>
         </div>
         <div class="row">
             <div class="col-4 text-center"><i class="fa-brands fa-facebook"></i></div>

@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('/rgpd', function () {
     return view('rgpd');
 });
+
 Route::get('/signup', function () {
     return view('signup');
 });
@@ -46,12 +47,13 @@ Route::resource('orders', OrderController::class);
 //Si on est connecté en tant qu'admin on a acces a la page /admin/dashboard
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', [UserController::class, 'index']);
-    // Add more routes accessible by the admin role
 });
 
 //Si on est user on a acces a la page user/profil
 
 Route::middleware(['role:user'])->group(function () {
     Route::get('/user/profile', [InvitedUserController::class, 'index']);
-    // Add more routes accessible by the user role
+
 });
+
+Route::get('/logout', [ConnexionController::class, 'logout'])->name('logout');
