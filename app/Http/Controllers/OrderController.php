@@ -20,9 +20,7 @@ class OrderController extends Controller
     public function create($productId)
 {
     $product = Product::findOrFail($productId);
-    $products = Product::all(); // Retrieve all products
-
-    return view('orders.addOrder', compact('product', 'products'));
+    return view('orders.addOrder', compact('product'));
 }
 
 

@@ -2,6 +2,7 @@
 RGPD
 @endsection
 @include('layouts.header')
+@include('layouts.head')
   <style>
     body {
       font-family: Arial, sans-serif;

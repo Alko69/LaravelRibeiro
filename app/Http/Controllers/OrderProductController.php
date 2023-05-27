@@ -10,30 +10,44 @@ class OrderProductController extends Controller
 {
     public function store(Request $request)
     {
+        // Validate the request data
         $request->validate([
-            'order_id' => 'required|exists:orders,id',
             'product_id' => 'required|exists:products,id',
             'quantity' => 'required|integer|min:1',
         ]);
 
-        $order = Orders::findOrFail($request->order_id);
-        $product = Product::findOrFail($request->product_id);
+        // Rechercher la commande avec l'idProduct donné
+        $order = Orders::where('user_id', auth()->id())->first();
 
-        $orderProduct = OrderProduct::create([
-            'order_id' => $order->id,
-            'product_id' => $product->id,
-            'quantity' => $request->quantity,
-            'price' => $product->price, // You can adjust this based on your application logic
-        ]);
+        // Si la commande n'existe pas, la créer
+        if (!$order) {
+            $order = new Orders();
+            $order->user_id = auth()->user()->id;
+            // Définir d'autres propriétés de la commande
 
-        return redirect()->route('orders.show', $order->id)
-            ->with('success', 'Product added to order successfully.');
+            // Enregistrer la commande dans la base de données
+            $order->save();
+        }
+
+        // Create an order item record
+        $orderProduct = new OrderProduct();
+        $orderProduct->order_id = $order->id;
+        $orderProduct->product_id = $request->product_id;
+        $orderProduct->product_price = $request->product_price;
+        $orderProduct->quantity = $request->quantity;
+        // Set other properties such as price, discounts, etc.
+
+        // Save the order item to the database
+        $orderProduct->save();
+
+        return redirect()->route('orders.index')
+            ->with('success', 'Order created successfully.');
     }
 
     public function destroy($orderProductId)
 {
     $orderProduct = OrderProduct::findOrFail($orderProductId);
-    $order = $orderProduct->order;
+    $order = $orderProduct->orders;
     $orderProduct->delete();
 
     return redirect()->route('orders.index')

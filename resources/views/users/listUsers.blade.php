@@ -3,6 +3,12 @@ Produits
 @endsection
 @include('layouts.header')
 
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }
+</script>
+
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -32,7 +38,7 @@ Produits
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
                     <td>
-                        <form action="{{ route('users.destroy', $user->id) }}" method="Post">
+                        <form action="{{ route('users.destroy', $user->id) }}" onsubmit="return confirmDelete();" method="Post">
                             <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')

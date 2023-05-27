@@ -1,1 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
 
+#noLogIn{
+    text-align: center;
+}
+
+.nav-link{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.footer-container {
+    border-top: 1px solid black;
+}
+.footer-row{
+    margin-top: 30px;
+}

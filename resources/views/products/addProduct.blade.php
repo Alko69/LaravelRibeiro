@@ -1,3 +1,9 @@
+@section('title')
+Add product
+@endsection
+@include('layouts.header')
+@include('layouts.head')
+
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">

@@ -2,6 +2,7 @@
 Accueil
 @endsection
 @include('layouts.header')
+@include('layouts.head')
 
 
 <body class="antialiased">

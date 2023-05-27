@@ -1,13 +1,14 @@
+@include('layouts.head')
 <footer class="mt-5">
-    <div class="container">
-        <div class="row">
+    <div class="container footer-container">
+        <div class="row footer-row">
             <div class="col-lg-4 text-center">
                 
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">
-                                <img src="https://media.tenor.com/H-MJKsxfTe4AAAAd/erwin-erwin-smith.gif" width="30"
-                                    height="30" alt="img logo projet">
+                                <img src="/medias/logo.jpg" width="60"
+                                    height="60" alt="img logo projet">
                             </a>
                         </li>
                         <li class="nav-item">

@@ -18,7 +18,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">
-                            <img src="https://media.tenor.com/H-MJKsxfTe4AAAAd/erwin-erwin-smith.gif" width="30" height="30" alt="img logo projet">
+                            <img src="/medias/logo.jpg" width="40" height="40" alt="img logo projet">
                         </a>
                     </li>
 
@@ -42,7 +42,8 @@
                     </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link" href="/orders">Cart</a>
+                        
+                        <a class="nav-link" href="/orders"><i class="glyphicon glyphicon-shopping-cart"></i></a>
                     </li>
                     @if($user)
                     <li class="nav-item">

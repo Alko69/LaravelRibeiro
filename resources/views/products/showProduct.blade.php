@@ -1,7 +1,8 @@
 @section('title')
-    Detail of {{ $product->name }}
+Detail of {{ $product->name }}
 @endsection
 @include('layouts.header')
+@include('layouts.head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="container">
@@ -38,7 +39,7 @@
             <p>Price: ${{ $product->price }}</p>
             <!-- Display other product details as necessary -->
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href=""> Add to card</a>
+                <a class="btn btn-success" href="{{ route('orders.create', $product->id) }}"> Add to card</a>
             </div>
         </div>
     </div>
